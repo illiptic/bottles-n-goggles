@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outfile=public/index.js",
+    "start": "esbuild src/index.ts --serve=3000 --servedir=public --outdir=public --bundle",
+    "serve": "http-server -p 3000"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.4",
+    "http-server": "^13.0.2"
+  },
+  "dependencies": {
+    "phaser": "3"
+  }
+}
