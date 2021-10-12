@@ -1,12 +1,11 @@
 import Phaser, { Scene, Types } from "phaser";
-
-let player: Types.Physics.Arcade.SpriteWithDynamicBody;
-let cursors: Types.Input.Keyboard.CursorKeys;
+import Character, { attachCharacterToScene } from "./character";
 
 const game = new Phaser.Game({
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    antialias: false,
     physics: {
         default: 'arcade',
         arcade: {}
@@ -23,40 +22,15 @@ function preload(this: Scene) {
     this.load.spritesheet('char', 'sprites/character.png', {
         frameWidth: 20,
         frameHeight: 40,
-        margin: 3,
+        margin: 2,
         spacing: 4
     });
 }
 
 function create(this: Scene) {
-    player = this.physics.add.sprite(100, 100, 'char', 2);
-
-    this.anims.create({
-        key: 'walk',
-        frames: this.anims.generateFrameNumbers('char', { start: 1, end: 6 }),
-        frameRate: 6,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walkback',
-        frames: this.anims.generateFrameNumbers('char', { start: 6, end: 1 }),
-        frameRate: 6,
-        repeat: -1
-    });
-
-    cursors = this.input.keyboard.createCursorKeys();
+    attachCharacterToScene(this, 100, 100);
 }
 
 function update(this: Scene) {
-    if (cursors.left.isDown) {
-        player.setVelocity(-10, 10);
-        player.anims.play('walk', true);
-    } else if (cursors.right.isDown) {
-        player.setVelocity(10, -10);
-        player.anims.play('walkback', true);
-    } else {
-        player.anims.stop();
-        player.setVelocity(0, 0);
-    }
+
 }

@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "bottles-n-goggles",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -10,8 +10,8 @@
     "serve": "http-server -p 3000"
   },
   "devDependencies": {
-    "esbuild": "^0.13.4",
-    "http-server": "^13.0.2"
+    "esbuild": "0.13.4",
+    "http-server": "13.0.2"
   },
   "dependencies": {
     "phaser": "3"
