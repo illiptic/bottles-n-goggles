@@ -26081,9 +26081,9 @@
               copy: function(src) {
                 return this.set(src);
               },
-              set: function(x, y, z, w, update) {
-                if (update === void 0) {
-                  update = true;
+              set: function(x, y, z, w, update2) {
+                if (update2 === void 0) {
+                  update2 = true;
                 }
                 if (typeof x === "object") {
                   this._x = x.x || 0;
@@ -26096,7 +26096,7 @@
                   this._z = z || 0;
                   this._w = w || 0;
                 }
-                if (update) {
+                if (update2) {
                   this.onChangeCallback(this);
                 }
                 return this;
@@ -26299,7 +26299,7 @@
                 this.w = -Math.sqrt(1 - x * x - y * y - z * z);
                 return this;
               },
-              setFromEuler: function(euler, update) {
+              setFromEuler: function(euler, update2) {
                 var x = euler.x / 2;
                 var y = euler.y / 2;
                 var z = euler.z / 2;
@@ -26311,27 +26311,27 @@
                 var s3 = Math.sin(z);
                 switch (euler.order) {
                   case "XYZ": {
-                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update2);
                     break;
                   }
                   case "YXZ": {
-                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update2);
                     break;
                   }
                   case "ZXY": {
-                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update2);
                     break;
                   }
                   case "ZYX": {
-                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update2);
                     break;
                   }
                   case "YZX": {
-                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 + c1 * s2 * s3, c1 * s2 * c3 + s1 * c2 * s3, c1 * c2 * s3 - s1 * s2 * c3, c1 * c2 * c3 - s1 * s2 * s3, update2);
                     break;
                   }
                   case "XZY": {
-                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update);
+                    this.set(s1 * c2 * c3 - c1 * s2 * s3, c1 * s2 * c3 - s1 * c2 * s3, c1 * c2 * s3 + s1 * s2 * c3, c1 * c2 * c3 + s1 * s2 * s3, update2);
                     break;
                   }
                 }
@@ -33039,7 +33039,7 @@
             var GetValue = __webpack_require__(6);
             var LoaderEvents = __webpack_require__(95);
             var NOOP = __webpack_require__(1);
-            var Scene = __webpack_require__(418);
+            var Scene3 = __webpack_require__(418);
             var Systems = __webpack_require__(204);
             var SceneManager = new Class({
               initialize: function SceneManager2(game2, sceneConfig) {
@@ -33081,7 +33081,7 @@
                   key = entry.key;
                   sceneConfig = entry.scene;
                   var newScene;
-                  if (sceneConfig instanceof Scene) {
+                  if (sceneConfig instanceof Scene3) {
                     newScene = this.createSceneFromInstance(key, sceneConfig);
                   } else if (typeof sceneConfig === "object") {
                     newScene = this.createSceneFromObject(key, sceneConfig);
@@ -33158,7 +33158,7 @@
                 }
                 key = this.getKey(key, sceneConfig);
                 var newScene;
-                if (sceneConfig instanceof Scene) {
+                if (sceneConfig instanceof Scene3) {
                   newScene = this.createSceneFromInstance(key, sceneConfig);
                 } else if (typeof sceneConfig === "object") {
                   sceneConfig.key = key;
@@ -33276,7 +33276,7 @@
               },
               createSceneFromFunction: function(key, scene) {
                 var newScene = new scene();
-                if (newScene instanceof Scene) {
+                if (newScene instanceof Scene3) {
                   var configKey = newScene.sys.settings.key;
                   if (configKey !== "") {
                     key = configKey;
@@ -33301,7 +33301,7 @@
                 return newScene;
               },
               createSceneFromObject: function(key, sceneConfig) {
-                var newScene = new Scene(sceneConfig);
+                var newScene = new Scene3(sceneConfig);
                 var configKey = newScene.sys.settings.key;
                 if (configKey !== "") {
                   key = configKey;
@@ -33337,7 +33337,7 @@
                 }
                 if (typeof sceneConfig === "function") {
                   return key;
-                } else if (sceneConfig instanceof Scene) {
+                } else if (sceneConfig instanceof Scene3) {
                   key = sceneConfig.sys.settings.key;
                 } else if (typeof sceneConfig === "object" && sceneConfig.hasOwnProperty("key")) {
                   key = sceneConfig.key;
@@ -33661,8 +33661,8 @@
           function(module2, exports2, __webpack_require__) {
             var Class = __webpack_require__(0);
             var Systems = __webpack_require__(204);
-            var Scene = new Class({
-              initialize: function Scene2(config) {
+            var Scene3 = new Class({
+              initialize: function Scene4(config) {
                 this.sys = new Systems(this, config);
                 this.game;
                 this.anims;
@@ -33693,7 +33693,7 @@
               update: function() {
               }
             });
-            module2.exports = Scene;
+            module2.exports = Scene3;
           },
           function(module2, exports2, __webpack_require__) {
             var GetFastValue = __webpack_require__(2);
@@ -43723,13 +43723,13 @@
                 this._dx = 0;
                 this._dy = 0;
               },
-              setGameObject: function(gameObject, update) {
+              setGameObject: function(gameObject, update2) {
                 if (gameObject && gameObject !== this.gameObject) {
                   this.gameObject.body = null;
                   gameObject.body = this;
                   this.gameObject = gameObject;
                 }
-                if (update) {
+                if (update2) {
                   this.updateFromGameObject();
                 }
                 return this;
@@ -52230,22 +52230,22 @@
               copy: function(euler) {
                 return this.set(euler.x, euler.y, euler.z, euler.order);
               },
-              setFromQuaternion: function(quaternion, order, update) {
+              setFromQuaternion: function(quaternion, order, update2) {
                 if (order === void 0) {
                   order = this._order;
                 }
-                if (update === void 0) {
-                  update = false;
+                if (update2 === void 0) {
+                  update2 = false;
                 }
                 tempMatrix.fromQuat(quaternion);
-                return this.setFromRotationMatrix(tempMatrix, order, update);
+                return this.setFromRotationMatrix(tempMatrix, order, update2);
               },
-              setFromRotationMatrix: function(matrix, order, update) {
+              setFromRotationMatrix: function(matrix, order, update2) {
                 if (order === void 0) {
                   order = this._order;
                 }
-                if (update === void 0) {
-                  update = false;
+                if (update2 === void 0) {
+                  update2 = false;
                 }
                 var elements = matrix.val;
                 var m11 = elements[0];
@@ -52327,7 +52327,7 @@
                 this._y = y;
                 this._z = z;
                 this._order = order;
-                if (update) {
+                if (update2) {
                   this.onChangeCallback(this);
                 }
                 return this;
@@ -54655,7 +54655,7 @@
             module2.exports = "volume";
           },
           function(module2, exports2, __webpack_require__) {
-            var GameObjects = {
+            var GameObjects2 = {
               Events: __webpack_require__(75),
               DisplayList: __webpack_require__(1012),
               GameObjectCreator: __webpack_require__(16),
@@ -54754,20 +54754,20 @@
               }
             };
             if (true) {
-              GameObjects.Shader = __webpack_require__(229);
-              GameObjects.Mesh = __webpack_require__(230);
-              GameObjects.PointLight = __webpack_require__(150);
-              GameObjects.Factories.Shader = __webpack_require__(1184);
-              GameObjects.Factories.Mesh = __webpack_require__(1185);
-              GameObjects.Factories.PointLight = __webpack_require__(1186);
-              GameObjects.Creators.Shader = __webpack_require__(1187);
-              GameObjects.Creators.Mesh = __webpack_require__(1188);
-              GameObjects.Creators.PointLight = __webpack_require__(1189);
-              GameObjects.Light = __webpack_require__(481);
-              GameObjects.LightsManager = __webpack_require__(482);
-              GameObjects.LightsPlugin = __webpack_require__(1190);
+              GameObjects2.Shader = __webpack_require__(229);
+              GameObjects2.Mesh = __webpack_require__(230);
+              GameObjects2.PointLight = __webpack_require__(150);
+              GameObjects2.Factories.Shader = __webpack_require__(1184);
+              GameObjects2.Factories.Mesh = __webpack_require__(1185);
+              GameObjects2.Factories.PointLight = __webpack_require__(1186);
+              GameObjects2.Creators.Shader = __webpack_require__(1187);
+              GameObjects2.Creators.Mesh = __webpack_require__(1188);
+              GameObjects2.Creators.PointLight = __webpack_require__(1189);
+              GameObjects2.Light = __webpack_require__(481);
+              GameObjects2.LightsManager = __webpack_require__(482);
+              GameObjects2.LightsPlugin = __webpack_require__(1190);
             }
-            module2.exports = GameObjects;
+            module2.exports = GameObjects2;
           },
           function(module2, exports2, __webpack_require__) {
             var Class = __webpack_require__(0);
@@ -68633,7 +68633,7 @@
           function(module2, exports2, __webpack_require__) {
             var CONST = __webpack_require__(144);
             var Extend = __webpack_require__(17);
-            var Scene = {
+            var Scene3 = {
               Events: __webpack_require__(20),
               GetPhysicsPlugins: __webpack_require__(419),
               GetScenePlugins: __webpack_require__(420),
@@ -68642,8 +68642,8 @@
               Settings: __webpack_require__(421),
               Systems: __webpack_require__(204)
             };
-            Scene = Extend(false, Scene, CONST);
-            module2.exports = Scene;
+            Scene3 = Extend(false, Scene3, CONST);
+            module2.exports = Scene3;
           },
           function(module2, exports2, __webpack_require__) {
             var Clamp = __webpack_require__(18);
@@ -72014,41 +72014,98 @@
   });
 
   // src/index.ts
+  var import_phaser2 = __toModule(require_phaser());
+
+  // src/character.ts
   var import_phaser = __toModule(require_phaser());
-  var game = new import_phaser.default.Game({
-    type: import_phaser.default.AUTO,
+  var SPEED = 60;
+  function attachCharacterToScene(scene, x, y) {
+    const char = new Character(scene, x, y);
+    scene.add.existing(char);
+    scene.physics.add.existing(char);
+    return char;
+  }
+  var Character = class extends import_phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y) {
+      super(scene, x, y, "char");
+      this.setTexture("char");
+      this.setScale(2, 2);
+      this.setPosition(x, y);
+      scene.anims.create({
+        key: "walk",
+        frames: scene.anims.generateFrameNumbers("char", { start: 0, end: 5 }),
+        frameRate: 12,
+        repeat: -1
+      });
+      scene.anims.create({
+        key: "walkback",
+        frames: scene.anims.generateFrameNumbers("char", { start: 6, end: 11 }),
+        frameRate: 12,
+        repeat: -1
+      });
+      this.cursors = scene.input.keyboard.createCursorKeys();
+    }
+    preUpdate(time, delta) {
+      super.preUpdate(time, delta);
+      if (this.cursors.left.isDown) {
+        this.setVelocity(-SPEED, SPEED);
+        this.anims.play("walk", true);
+        this.setFlipX(false);
+      } else if (this.cursors.right.isDown) {
+        this.setVelocity(SPEED, -SPEED);
+        this.anims.play("walkback", true);
+        this.setFlipX(true);
+      } else if (this.cursors.up.isDown) {
+        this.setVelocity(-SPEED, -SPEED);
+        this.anims.play("walkback", true);
+        this.setFlipX(false);
+      } else if (this.cursors.down.isDown) {
+        this.setVelocity(SPEED, SPEED);
+        this.anims.play("walk", true);
+        this.setFlipX(true);
+      } else {
+        this.anims.stop();
+        this.setFrame(2);
+        this.setVelocity(0, 0);
+      }
+    }
+  };
+
+  // src/index.ts
+  var game = new import_phaser2.default.Game({
+    type: import_phaser2.default.AUTO,
     width: 800,
     height: 600,
+    antialias: false,
     physics: {
       default: "arcade",
-      arcade: {
-        gravity: { y: 200 }
-      }
+      arcade: {}
     },
     scene: {
       preload,
-      create
+      create,
+      update
     }
   });
   function preload() {
-    this.load.setBaseURL("http://labs.phaser.io");
-    this.load.image("sky", "assets/skies/space3.png");
-    this.load.image("logo", "assets/sprites/phaser3-logo.png");
-    this.load.image("red", "assets/particles/red.png");
+    this.load.setPath("assets/");
+    this.load.spritesheet("char", "sprites/character.png", {
+      frameWidth: 20,
+      frameHeight: 40,
+      margin: 2,
+      spacing: 4
+    });
+    this.load.image("background", "bg.jpg");
   }
   function create() {
-    this.add.image(400, 300, "sky");
-    const particles = this.add.particles("red");
-    const emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 1, end: 0 },
-      blendMode: "ADD"
-    });
-    const logo = this.physics.add.image(400, 100, "logo");
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
-    emitter.startFollow(logo);
+    const background = this.add.image(0, 0, "background");
+    background.setOrigin(0, 0);
+    background.setPosition(0, 0);
+    background.setScale(0.5, 0.5);
+    background.setSize(this.renderer.width, this.renderer.height);
+    attachCharacterToScene(this, 100, 100);
+  }
+  function update() {
   }
 })();
 /**

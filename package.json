@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "esbuild": "0.13.4",
-    "http-server": "13.0.2"
+    "http-server": "13.0.2",
+    "prettier": "2.4.1"
   },
   "dependencies": {
     "phaser": "3"
